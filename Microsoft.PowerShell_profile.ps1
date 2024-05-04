@@ -23,7 +23,7 @@ function Update-Profile {
     }
 
     try {
-        $url = "https://raw.githubusercontent.com/ChrisTitusTech/powershell-profile/main/Microsoft.PowerShell_profile.ps1"
+        $url = "https://raw.githubusercontent.com/yuki6942/powershell-profile/main/Microsoft.PowerShell_profile.ps1"
         $oldhash = Get-FileHash $PROFILE
         Invoke-RestMethod $url -OutFile "$env:temp/Microsoft.PowerShell_profile.ps1"
         $newhash = Get-FileHash "$env:temp/Microsoft.PowerShell_profile.ps1"
@@ -127,6 +127,7 @@ function unzip ($file) {
     $fullFile = Get-ChildItem -Path $pwd -Filter $file | ForEach-Object { $_.FullName }
     Expand-Archive -Path $fullFile -DestinationPath $pwd
 }
+<#
 function hb {
     if ($args.Length -eq 0) {
         Write-Error "No file path specified."
@@ -151,7 +152,7 @@ function hb {
     } catch {
         Write-Error "Failed to upload the document. Error: $_"
     }
-}
+}#>
 function grep($regex, $dir) {
     if ( $dir ) {
         Get-ChildItem $dir | select-string $regex
